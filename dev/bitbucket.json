@@ -1,0 +1,31 @@
+{
+    "repository": {
+        "website": null,
+        "fork": false,
+        "name": "test",
+        "scm": "git",
+        "owner": "wangyuzju",
+        "absolute_url": "/wangyuzju/test/",
+        "slug": "test",
+        "is_private": true
+    },
+    "truncated": false,
+    "commits": [
+        {
+            "node": "ad78a8ecdc4f",
+            "files": [{"type": "added", "file": "push.sh"}],
+            "raw_author": "wangyuzju <wangyu0248@gmail.com>",
+            "utctimestamp": "2015-02-10 12:46:51+00:00",
+            "author": "wangyuzju",
+            "timestamp": "2015-02-10 13:46:51",
+            "raw_node": "ad78a8ecdc4fe14a2bd188432e842316dd727a55",
+            "parents": ["a921078bf6bd"],
+            "branch": "master",
+            "message": " upload test code\\n",
+            "revision": null,
+            "size": -1
+        }
+    ],
+    "canon_url": "https://bitbucket.org",
+    "user": "wangyuzju"
+}
