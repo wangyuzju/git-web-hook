@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    style.
+      input{
+        width: 200px;
+      }
+  body
+    form
+      input(type='text', placeholder='ex: bitbucket_wangyuzju_test')
+      input(type='text', placeholder='ex: /home/wwwroot/sync_code.sh')
+      button#save(type='submit') 确定
+
+
+
+  script.
+    var elem = function(id){
+      return document.getElementById(id);
+    }
+
+    elem('save').addEventListener('click', function(e){
+      e.preventDefault();
+    });

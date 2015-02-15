@@ -1,0 +1,9 @@
+{
+    "bitbucket_wangyuzju_test": {
+        "script": "/home/wy/scripts/reload.sh"
+    },
+    "bitbucket_enimo_koudai-app": {
+        "script": "/root/script/reload_mofangapp.sh"
+    }
+}
+
