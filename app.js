@@ -8,6 +8,18 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
+/*************************************
+ * add response helper method for api
+ *************************************/
+express.response.api_success = function(){
+    this.json({errorCode: 22000});
+};
+
+express.response.api_fail = function(code, msg){
+    this.json({errorCode: code, msg: msg});
+};
+
 var app = express();
 
 // view engine setup
@@ -18,10 +30,11 @@ app.set('view engine', 'jade');
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//app.use();
 app.use('/', routes);
 app.use('/users', users);
 app.use('/git_hook', require('./routes/git_hook'));

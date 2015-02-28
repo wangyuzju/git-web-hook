@@ -2,24 +2,66 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     style.
-      input{
-        width: 200px;
-      }
+      /*input{*/
+        /*width: 200px;*/
+      /*}*/
   body
-    form
-      input(type='text', placeholder='ex: bitbucket_wangyuzju_test')
-      input(type='text', placeholder='ex: /home/wwwroot/sync_code.sh')
-      button#save(type='submit') 确定
+    div.container
+      form
+        each val, key in tplData.rules
+          div.form-group.config-record
+            input.form-control(type='text', value=key)
+            textarea.form-control(type='text')=val.script
+        //input(type='text', placeholder='ex: bitbucket_wangyuzju_test')
+        //input(type='text', placeholder='ex: /home/wwwroot/sync_code.sh')
+        //button#save(type='submit') 确定
+        div.form-group.config-record
+          input.form-control(type='text')
+          textarea.form-control(type='text')
+
+        div.form-inline
+          div.form-group
+            input#passwd.form-control(type='password', placeholder='请输入密码')
+            div#save.btn.btn-primary 保存修改
 
 
 
+  script(src='/js/jquery.js')
   script.
-    var elem = function(id){
-      return document.getElementById(id);
-    }
+    $('#save').on('click', function(){
+      var config = {};
 
-    elem('save').addEventListener('click', function(e){
-      e.preventDefault();
+      $('.config-record').each(function(i, item){
+        var elem = $(item);
+        var name = elem.find('input').val();
+        var value = elem.find('textarea').val();
+
+        if(name && value){
+          config[name] = {
+            "script": value
+          };
+        }
+      });
+
+      console.log(config);
+
+
+      $.ajax({
+        url: '/git_hook/api/set_rule',
+        method: 'POST',
+        data: {
+          config: config,
+          password: $('#passwd').val()
+        },
+        //contentType: 'application/json',
+        dataType: 'json'
+      }).then(function(data){
+        if(data.errorCode == 22000){
+          location.href = location.href;
+        }else{
+          alert('保存失败！' +  JSON.stringify(data.msg));
+        }
+      })
     });

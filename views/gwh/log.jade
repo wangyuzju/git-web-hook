@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    style.
+      input {
+        width: 200px;
+      }
+  body
+    div 日志
+    div
+      pre= content
+
+
+  script.
+    var elem = function (id) {
+      return document.getElementById(id);
+    }
+    elem('save').addEventListener('click', function (e) {
+      e.preventDefault();
+    });

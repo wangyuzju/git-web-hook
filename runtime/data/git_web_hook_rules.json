@@ -1,9 +1,14 @@
 {
-    "bitbucket_wangyuzju_test": {
-        "script": "/home/wy/scripts/reload.sh"
-    },
-    "bitbucket_enimo_koudai-app": {
-        "script": "/root/script/reload_mofangapp.sh"
-    }
+  "bitbucket_wangyuzju_test": {
+    "script": "/home/wy/scripts/reload.sh\necho \"good game!\""
+  },
+  "bitbucket_enimo_koudai-app": {
+    "script": "/root/script/reload_mofangapp.sh"
+  },
+  "github_wangyuzju_labs": {
+    "script": "cd /home/wy/www/labs; make prod_update"
+  },
+  "test": {
+    "script": "echo hello world!;"
+  }
 }
-
